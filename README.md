@@ -7,60 +7,64 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Proyecto Laravel Challenge
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Este proyecto es parte de un desafío de desarrollo utilizando el framework Laravel. El objetivo principal es interactuar con una API pública para obtener datos y almacenarlos en una base de datos. Además, se proporciona una API propia para acceder a estos datos filtrados por categoría.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Requisitos
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- PHP >= 7.4
+- Laravel >= 8.x
+- Composer
 
-## Learning Laravel
+## 1. Clonar el repositorio:
+git clone https://github.com/manterolaenrique/laravelChallenge.git
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 2. Instalar dependencias:
+cd laravelChallenge1
+composer install
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+##  3. Configuración del entorno:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Copiar el archivo .env.example a .env:
 
-## Laravel Sponsors
+cp .env.example .env
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- Generar una clave de aplicación:
 
-### Premium Partners
+php artisan key:generate
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+ - Configurar la conexión a la base de datos en el archivo .env.
 
-## Contributing
+ ## 4 Migraciones y semillas:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+ php artisan migrate --seed
 
-## Code of Conduct
+## 5 Servidor de desarrollo:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+php artisan serve
 
-## Security Vulnerabilities
+## Pruebas
+Pruebas Unitarias
+Para ejecutar las pruebas unitarias:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+php artisan test --testsuite=Unit
 
-## License
+Pruebas de Integración
+Para ejecutar las pruebas de integración:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+php artisan test --testsuite=Feature
+
+Pruebas de API
+Puedes probar la API utilizando herramientas como Postman o ejecutando scripts de prueba automatizados.
+
+## Uso
+API Personalizada
+Puedes acceder a la API personalizada en la siguiente ruta:
+
+{SITE_URL}/api/{category}
+
+Reemplaza {SITE_URL} con la URL de tu servidor y {category} con la categoría deseada, por ejemplo: http://localhost:8000/api/Animals.
+
+La API devolverá los datos correspondientes a la categoría especificada.
+
